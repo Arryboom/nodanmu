@@ -1,0 +1,19 @@
+// ==UserScript==
+// @name         斗鱼弹幕自动屏蔽
+// @namespace    http://tampermonkey.net/
+// @version      0.10
+// @description  自动屏蔽所有斗鱼直播间弹幕,礼物弹窗
+// @github	 https://www.github.com/arryboom/nodanmu
+// @author       arryboom
+// @match        *://www.douyu.com/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+setTimeout(function(){$("div[class^='showdanmu-']").click();
+console.log("###Douyu-nodanmu###");
+status=$("span[class^='shie-input']").attr("data-shield-status");
+if (status=="0"){
+$("span[class^='shie-input']").children(".shie-checkbox-icon").click();
+};})();
